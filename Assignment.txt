@@ -1,0 +1,138 @@
+Q1. What is Emmet?
+Emmet is a free add-on for your text editor that allows you to type shortcuts that are then expanded 
+into full pieces of code. By using Emmet, email designers type less, saving both keystrokes 
+and time when building a campaign. Also, relying on Emmet’s autocompletion means fewer typos and missing tags,
+leading to more robust emails.
+
+Q2. Difference between a Library and Framework?
+The main distinction between a framework and a library is that a framework inverts program control.
+It informs the developer of what they require. A library, however, does not. Instead,
+a programmer calls the library when and where he needs it.
+ 
+Q3: What is CDN? Why do we use it?
+A CDN is a content delivery network i.e. a network of servers that distributes content from an 
+“origin” server throughout the world by caching content close to where each end user is accessing 
+the internet via a web-enabled device. The content they request is first stored on the origin server
+and is then replicated and stored elsewhere as needed.
+
+Q4: Why is React known as React?
+React was developed for applications (Facebook) that have constantly changing data. Since React is a
+front-end framework or the “View” in MVC, this means that as the user clicks around and changes the app’s data, 
+the view should “react” or change with those user events. User events being mouse clicks, typing, submitting a form.
+
+Q5: What is crossorigin in script tag?
+The purpose of crossorigin attributes is used to share the resources from one domain to another domain.
+Basically, it is used to handle the CORS request. It is used to handle the CORS request that checks whether 
+it is safe to allow for sharing the resources from other domains. The resources may include Audio, Video, Images, 
+Link or external script that specifies whether to support a cross-origin request or not.
+CORS: It stands for cross-origin resource sharing. It is a mechanism by which one webpage requests to another domain
+for fetching out the resource like audio, video, script, etc. from the third party server without leaking their 
+credentials information.
+
+Q6: What is diference between React and ReactDOM?
+React library is responsible for creating views and ReactDOM library is responsible to actually render 
+UI in the browser
+
+Q8: Difference between async and defer?
+async and defer are the keyword which are used inside script tag along with src, these are used to load external script efficiently to our web pages.
+Note: 
+When we load web pages two things happen:
+    a) html parsing.
+    b) loading of script.
+Loading of script happen in 2 ways :
+    a) fetching script from network
+    b) execution of script 
+e.g :
+<script src ="abc.js"></script>
+By default, the js engine starts Html parsing but once the script tag encounters it pauses Html parsing, 
+starts fetching script from the network and once network fetch is completed, it pauses the Html parsing and 
+starts executing the script, and once the script execution is completed then only it starts remaining Html parsing.
+
+<script async src ="abc.js"><script>
+In this case by default the js engine starts Html parsing and fetching of the script from network parallelly, 
+once fetching is completed then it pauses Html parsing, and starts executing the script, and at the end, 
+once the execution of script is completed then it will start remaining html parsing.
+
+<script defer src ="abc.js"></script>
+In this case also by default, the js engine starts Html parsing and fetching the script from the network 
+parallelly but it continoues html parsing and script will execute once parsing is completed.
+
+
+                            Notes:-2
+
+
+Q1. What is `NPM`?
+NPM is a package manager for all the modules and packages that are used in a projects.
+
+Q2. What is `Parcel/Webpack`? Why do we need it?
+Parcel/Webpack is a bundler that means all the javascript code written in different files and folders
+including all the dependencies and packages are bundled and minified in a single file(bundling all your javascript modules into one) which is then given
+to the browser.
+They provide many different advantges like Hot Module Replacement, Caching etc.
+
+Q3. What is `.parcel-cache`?
+This is a directory which is created when the build of the project is created. Parcel stored information
+about the project like what dependencies are being used. For the first build, parcel takes time but for the
+subsequent builds it will take lesser time as it will use the cache already created.
+
+Q4. What is `npx`(Node Package Execute) ?
+npx is tool which allows to run executables from the packages without letting the packages to be installed
+globally. It also automatically installs the package if not installed already.
+
+package runner that can execute any package that you want from the npm registry without even installing that package.
+
+Q5.What is difference between `dependencies` vs `devDependencies
+The difference between these two, is that devDependencies are modules which are only required during development, 
+while dependencies are modules which are also required at runtime. So while development we use both of them.
+
+Q6.What is Tree Shaking?
+Tree Shaking is also called Dead Code Elimination. Parcel analyzes all the modules for imports and exports
+and eliminates all the things which are unused. Works for both dynamic and static imports.
+
+Q7.What is Hot Module Replacement?
+If we use a bundler and we run the server provided by the bundler, as we make changes in our code, 
+it will get reflected in the browser. This happens because the bundler automatically rebuilds the changed files 
+and updates the app in the browser. By default the bundler fully reloads the page, but in some cases it uses HMR 
+for better performance. Becase HMR improves the development experience by updating the modules in the browser at 
+runtime without refreshing the whole and it retains the application state when we made some small changes like 
+updating the css.
+
+When the developer saves the project then parcel automatically updates the modules in runtime without letting
+the developer to reload the page.
+
+Q8.List down your favourite 5 superpowers of Parcel and describe any 3 of them in your
+own words.
+
+i -> File Watcher algorithm: Parcel keeps analyzing the files and automatically updates the changes which
+are being made ny the developer in the project.It uses File Watcher written in C++ to watch every file in our project root (including node_modules) 
+and determines which files to rebuilt.
+ii -> Caching while development -> Caching improves the performance of the application. Once cache has
+been created then the subsequent builds will take lesser time which makes the application faster.
+iii -> Zero configuration bundler -> No configuration is required in order to use parcel in the application.
+iv -> Tree Shaking
+v -> Hot Module Replacement
+vi -> Minification - It generates minified files in dist directory for product build.
+vii -> Compatible with older version of browser - It uses browserlist package internally for making the code compatible with every browser.
+
+Q9.What is the difference between `package.json` and `package-lock.json`
+Package.json : The package.json file has the metadata of the project, The project's basic information, 
+such as package name, version, description, author, dependencies, etc., are present in package.json.The npm init command generates the package.json file.
+
+Package-lock.json: The package-lock.json file stores the exact version of dependencies. Dependencies and
+their locked versions are there in the package-lock.json file. The package-lock.json file is generated when 
+you install a package to your project, That is why we shouldnot delete the package-lock.json.
+
+Q10.What is the `dist` folder?
+
+dist folder is generated by bundler. The bundler maintains its development and production build files in it.
+
+Q11.Transitive dependencies:
+It is a type of dependency where one dependency requires another dependency to work properly and another dependency 
+requires an another dependecy.
+
+Q12.Why react is fast?
+It is not only the virtual DOM that makes React faster but other components like bundlers (e.g. parcel, webpack ,vite etc. ) and development ecosystme also.
+
+
+
+
