@@ -8,10 +8,15 @@
 .nav-items > ul {
   list-style-type: none;
   display: flex;
+  margin-right: 1000px;
 }
-
+.nav-items {
+  margin-top: 18px;
+}
 .nav-items > ul > li {
   padding: 10px;
+  font-size: 20px;
+  font-weight: 550px;
 }
 
 .logo {
@@ -32,4 +37,32 @@
 .restaurant-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.search-container {
+  margin-top: 24px;
+  margin-left: 10px;
+}
+.search-input {
+  width: 200px;
+  height: 22px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.search-btn {
+  border-radius: 4px;
+  height: 26px;
+  width: 72px;
+}
+.clear-btn {
+  margin-left: 10px;
+  border-radius: 4px;
+  height: 26px;
+  width: 72px;
+}
+.shimmer-card {
+  width: 200px;
+  height: 200px;
+  background: lightgrey;
+  margin: 20px;
 }
