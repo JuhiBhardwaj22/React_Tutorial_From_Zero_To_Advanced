@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom/client";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../Constant";
 import Shimmer from "./Shimmer";
@@ -19,10 +18,8 @@ const RestrauntMenu = () => {
       "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=" +
         id
     );
-    console.log(data);
     const json = await data.json();
     setRestaurant(json.data);
-    console.log("json", json.data);
   }
 
   return !restaurant ? (
@@ -39,7 +36,6 @@ const RestrauntMenu = () => {
         <ul>
           {Object.values(restaurant?.menu?.items).map((items) => {
             return <li key={items.id}>{items.name}</li>;
-            console.log("items", items.name);
           })}
         </ul>
       </div>

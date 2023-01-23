@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./component/Header";
 import Body from "./component/Body";
 import Footer from "./component/Footer";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./component/About";
 import Error from "./component/Error";
 import Contact from "./component/Contact";

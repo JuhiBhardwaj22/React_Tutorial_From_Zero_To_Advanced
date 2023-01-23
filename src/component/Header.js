@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Logo from "../assest/img/foodvilla.jpeg";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../assest/img/foodvilla.jpeg";
 
 export const Title = () => {
   return (

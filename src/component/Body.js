@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { restaurantList } from "../Constant";
-import RestrauntCard from "./RestrauntCard";
-import Shimmer from "./Shimmer";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
+import RestrauntCard from "./RestrauntCard";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -17,7 +17,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    console.log("useEffect");
     getRestaurants();
   }, []);
 
@@ -29,7 +28,6 @@ const Body = () => {
     setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
   }
-  console.log("render");
   if (!allRestaurants) return null;
 
   return allRestaurants?.length === 0 ? (
@@ -48,7 +46,6 @@ const Body = () => {
           className="search-btn"
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
-            console.log("data", data);
             setFilteredRestaurants(data);
           }}
         >
