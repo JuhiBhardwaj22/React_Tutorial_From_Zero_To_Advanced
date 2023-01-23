@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { restaurantList } from "../Constant";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -16,7 +17,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    console.log("render-useEffect");
+    console.log("useEffect");
     getRestaurants();
   }, []);
 
@@ -28,15 +29,9 @@ const Body = () => {
     setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
   }
-  if (!allRestaurants) return null;
-  if (filteredRestaurants.length === 0) {
-    return (
-      <div>
-        <h1>No Result Found</h1>
-      </div>
-    );
-  }
   console.log("render");
+  if (!allRestaurants) return null;
+
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -72,7 +67,12 @@ const Body = () => {
       <div className="restaurant-list">
         {filteredRestaurants.map((restaurant) => {
           return (
-            <RestrauntCard {...restaurant.data} key={restaurant.data.id} />
+            <Link
+              to={"/restraunt/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
+              <RestrauntCard {...restaurant.data} />
+            </Link>
           );
         })}
       </div>
