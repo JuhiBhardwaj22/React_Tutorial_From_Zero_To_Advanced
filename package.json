@@ -2,7 +2,6 @@
   "name": "react_tutorial_from_zero_to_advanced",
   "version": "1.0.0",
   "description": "This is React Course",
-  "main": "App.js",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
