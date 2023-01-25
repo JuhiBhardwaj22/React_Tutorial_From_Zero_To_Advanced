@@ -1,6 +1,6 @@
 import React from "react";
 import { IMG_CDN_URL } from "../Constant";
-import location from "../assest/location.png";
+import location from "../assest/img/location.png";
 
 export const RestrauntCard = ({
   name,
