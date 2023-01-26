@@ -6,6 +6,8 @@ import RestrauntCard from "./RestrauntCard";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 
+import { RESTRAUNT_LIST_URL } from "../Constant";
+
 const Body = () => {
   //We can't update restaurantList directly so we need to create state variable
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -19,9 +21,7 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RESTRAUNT_LIST_URL);
     const jsonData = await data.json();
     setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
