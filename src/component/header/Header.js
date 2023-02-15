@@ -5,7 +5,7 @@ import useOnline from "../../utils/useOnline";
 
 export const Title = () => {
   return (
-    <a href="/home">
+    <a href="/">
       <img className="logo" alt="logo" src={Logo} />
     </a>
   );
