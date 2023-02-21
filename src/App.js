@@ -8,8 +8,8 @@ import About from "./component/about/About";
 import Error from "./utils/Error";
 import Contact from "./component/contact/Contact";
 import RestrauntMenu from "./component/RestrauntMenu";
-import Login from "./component/login/Login";
 import Shimmer from "./utils/Shimmer";
+import Profile from "./component/profile/Profile";
 //import Offers from "./component/offers/Offers";
 
 const Offers = lazy(() => import("./component/offers/Offers")); //Dynamic import
@@ -39,6 +39,12 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: <About />,
         errorElement: <Error />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",
