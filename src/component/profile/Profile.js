@@ -4,10 +4,12 @@ const Profile = (props) => {
   const [count, setCount] = useState(0);
   //console.log("before useEffect render");
   useEffect(() => {
-    //console.log("funtion-useEffect");
+  //   console.log("funtion-useEffect");
   // const timer =  setInterval(() =>{
-  //     console.log("useEfeect  - setInternVal")
+  //     console.log("useEfeect  - setInternVal -profile")
   //   },1000)
+
+  //this return will cleanup the function
   //   return() =>{
   //     clearInterval(timer);
   //   }
