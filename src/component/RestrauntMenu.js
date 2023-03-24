@@ -10,11 +10,10 @@ const RestrauntMenu = () => {
   //const {id} = useParams();// we can also do this
 
   const restaurant = useRestaurant(id);
-
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="menu">
+    <div>
       <div>
         <h1>Restraunt</h1>
         <h2>{restaurant.name}</h2>

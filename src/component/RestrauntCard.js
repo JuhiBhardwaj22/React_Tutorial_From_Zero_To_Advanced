@@ -12,28 +12,23 @@ export const RestrauntCard = ({
   lastMileTravelString,
 }) => {
   return (
-    <div className="card">
+    <div className="w-56 p-2 m-2 shadow-lg bg-gray-100">
       <img src={IMG_CDN_URL + cloudinaryImageId} />
-      <h3>{name}</h3>
+      <h3 className="font-bold text-lg">{name}</h3>
       <br />
-      <span style={{ color: "black" }}>{cuisines.join(", ")}</span>
+      <span>{cuisines.join(", ")}</span>
       <br /> <br />
-      <span style={{ color: "black" }}>{costForTwoString}</span> <br />
+      <span>{costForTwoString}</span> <br />
       <div>
         <span
-          style={{
-            border: "1px solid",
-            color: "white",
-            background: "rgb(0, 146, 63)",
-          }}
         >
           {totalRatingsString}
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <span style={{ color: "gray" }}>{slaString}</span>
+        <span>{slaString}</span>
         <br />
         <br />
-        <img src={location} style={{ height: 28, width: 20 }} />
+        <img className="w-4" src={location}/>
         <span>{lastMileTravelString}</span>
       </div>
       <br />

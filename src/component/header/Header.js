@@ -6,7 +6,7 @@ import useOnline from "../../utils/useOnline";
 export const Title = () => {
   return (
     <a href="/">
-      <img className="logo" alt="logo" src={Logo} />
+      <img className="h-24 p-2 pl-2 mr-20" alt="logo" src={Logo} />
     </a>
   );
 };
@@ -15,28 +15,28 @@ const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="header">
+    <div className="h-24 flex flex-row bg-gray-300 shadow-lg">
       <Title />
-      <h1>{isOnline ? "✅" : "🔴"}</h1>
-      <div className="nav-items">
-        <ul>
-          <Link to="/">
-            <li>Home</li>
+      {/* <h1>{isOnline ? "✅" : "🔴"}</h1> */}
+      <div>
+        <ul className="flex pt-9 ml-80">
+          <Link className="px-8" to="/">
+            <li className="font-bold text-lg">Home</li>
           </Link>
-          <Link to="/about">
-            <li>About</li>
+          <Link className="px-8" to="/about">
+            <li className="font-bold text-lg">About</li>
           </Link>
-          <Link to="/contact">
-            <li>Contact</li>
+          <Link className="px-8" to="/contact">
+            <li className="font-bold text-lg">Contact</li>
           </Link>
-          <Link>
-            <li>Cart</li>
+          <Link className="px-8">
+            <li className="font-bold text-lg">Cart</li>
           </Link>
-          <Link to="/Offers">
-            <li>Offers</li>
+          <Link  className="px-8" to="/Offers">
+            <li className="font-bold text-lg">Offers</li>
           </Link>
 
-          <button className="login">Login</button>
+          <button className="ml-48 border rounded-full w-24 h-10 bg-blue-600" >Login</button>
         </ul>
       </div>
       {/* {isLoggedIn ? (

@@ -8,7 +8,6 @@ const Login = () => {
         <span>Email</span>
         <input
           type="text"
-          className="login-search-input"
           placeholder="Enter Email Id"
         ></input>
         <button>
