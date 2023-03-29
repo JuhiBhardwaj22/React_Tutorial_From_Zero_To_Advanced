@@ -11,6 +11,7 @@ const RestrauntMenu = () => {
 
   let restaurant = useRestaurant(id);
 
+  console.log("restaurant",restaurant)
   const menuList = restaurant?.cards?.find((obj) => obj.groupedCard)?.
   groupedCard?.cardGroupMap?.REGULAR?.cards.filter(obj => obj.card.card.itemCards);
 
@@ -23,8 +24,8 @@ const RestrauntMenu = () => {
   ) : (
     <div>
       <div>
-        <h1>Restraunt</h1>
-        <h2>{restaurant?.cards[0]?.card?.card?.info.name}</h2>
+        <h1  className="text-xl font-bold">Restraunt</h1>
+        <h2  className="text-lg font-bold">{restaurant?.cards[0]?.card?.card?.info.name}</h2>
         <img src={IMG_CDN_URL + restaurant?.cards[0]?.card?.card?.info.cloudinaryImageId} />
       </div>
       <div>
@@ -37,7 +38,7 @@ const RestrauntMenu = () => {
                    {items?.itemCards?.map((lists,index) =>{
                     return(
                       <div>
-                          <li key={index}>{lists?.card?.info?.name}</li>
+                          <li key={lists?.card?.info?.id}>{lists?.card?.info?.name}</li>
                       </div>
                     )
                    })}

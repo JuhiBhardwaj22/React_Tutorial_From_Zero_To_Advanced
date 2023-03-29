@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assest/img/foodvilla.jpeg";
 import useOnline from "../../utils/useOnline";
+import userContext  from "../../utils/userContext";
 
 export const Title = () => {
   return (
@@ -14,10 +15,13 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
 
+const {user} = useContext(userContext);
+
   return (
     <div className="h-24 flex flex-row bg-gray-300 shadow-lg">
       <Title />
-      {/* <h1>{isOnline ? "✅" : "🔴"}</h1> */}
+      <h1>{isOnline ? "✅" : "🔴"}</h1>
+      <p>{user.name}</p>
       <div>
         <ul className="flex pt-9 ml-80">
           <Link className="px-8" to="/">
@@ -26,16 +30,12 @@ const Header = () => {
           <Link className="px-8" to="/about">
             <li className="font-bold text-lg">About</li>
           </Link>
-          <Link className="px-8" to="/contact">
-            <li className="font-bold text-lg">Contact</li>
-          </Link>
           <Link className="px-8">
             <li className="font-bold text-lg">Cart</li>
           </Link>
           <Link  className="px-8" to="/Offers">
             <li className="font-bold text-lg">Offers</li>
           </Link>
-
           <button className="ml-48 border rounded-full w-24 h-10 bg-blue-600" >Login</button>
         </ul>
       </div>

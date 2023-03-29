@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./component/header/Header";
@@ -10,16 +10,23 @@ import Contact from "./component/contact/Contact";
 import RestrauntMenu from "./component/RestrauntMenu";
 import Shimmer from "./utils/Shimmer";
 import Profile from "./component/profile/Profile";
+import userContext from "./utils/userContext";
 //import Offers from "./component/offers/Offers";
 
 const Offers = lazy(() => import("./component/offers/Offers")); //Dynamic import
 
 const AppLayout = () => {
+  const[userInfo,setUserInfo] = useState({
+    name:"Juhi",
+    email:"juhi@gmail.com"
+  })
   return (
     <>
+    <userContext.Provider value={{user:userInfo}}>
       <Header />
       <Outlet />
       <Footer />
+    </userContext.Provider>
     </>
   );
 };

@@ -8,12 +8,12 @@ const Contact = () => {
 
 //   useEffect(async () =>{
 //     console.log("callBack functio")
-//     // const timer =  setInterval(() =>{
-//     //       console.log(" useEfeect  - setInternVal -contact")
-//     //     },1000)
-//       //this return will cleanup the function
+    // const timer =  setInterval(() =>{
+    //       console.log(" useEfeect  - setInternVal -contact")
+    //     },1000)
+       //this return will cleanup the function
 //         return() =>{
-//          // clearInterval(timer);
+        // clearInterval(timer);
 //         }
 //  },[])
 
