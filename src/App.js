@@ -11,7 +11,10 @@ import RestrauntMenu from "./component/RestrauntMenu";
 import Shimmer from "./utils/Shimmer";
 import Profile from "./component/profile/Profile";
 import userContext from "./utils/userContext";
-//import Offers from "./component/offers/Offers";
+import Cart from "./component/cart/Cart";
+import store from "./utils/store"
+import { Provider } from "react-redux";
+
 
 const Offers = lazy(() => import("./component/offers/Offers")); //Dynamic import
 
@@ -21,13 +24,13 @@ const AppLayout = () => {
     email:"juhi@gmail.com"
   })
   return (
-    <>
+    <Provider store={store}>
     <userContext.Provider value={{user:userInfo}}>
       <Header />
       <Outlet />
       <Footer />
     </userContext.Provider>
-    </>
+    </Provider>
   );
 };
 
@@ -56,6 +59,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
         errorElement: <Error />,
       },
       {

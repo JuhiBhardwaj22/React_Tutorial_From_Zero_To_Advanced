@@ -1,8 +1,10 @@
 import React from "react";
+import { useDispatch } from 'react-redux'
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../Constant";
 import Shimmer from "../utils/Shimmer";
 import useRestaurant from "../utils/useRestaurant";
+import { addItem } from "../utils/cartSlice";
 
 const RestrauntMenu = () => {
   const param = useParams();
@@ -19,26 +21,32 @@ const RestrauntMenu = () => {
     return  menuItem?.card?.card;
   })
  
+  const dispatch = useDispatch();
+  const addFoodItem = (items) =>{
+    console.log("v",items)
+    dispatch(addItem(items));
+  }
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div>
-      <div>
+    <div className="flex">
+      <div className="mr-8">
         <h1  className="text-xl font-bold">Restraunt</h1>
         <h2  className="text-lg font-bold">{restaurant?.cards[0]?.card?.card?.info.name}</h2>
         <img src={IMG_CDN_URL + restaurant?.cards[0]?.card?.card?.info.cloudinaryImageId} />
       </div>
       <div>
-        <h1>Menu🥘🍔🍟</h1>
+        <h1 className="text-xl font-bold">Menu🥘🍔🍟</h1>
           <ul>
             {menuAllList.map((items,index) => {
               return(
                 <>
-                   <h1 className="text-xl font-bold">{items?.title}</h1> 
+                   <h1 className="text-xl font-bold text-red-500">{items?.title}</h1> 
                    {items?.itemCards?.map((lists,index) =>{
                     return(
-                      <div>
+                      <div className="flex">
                           <li key={lists?.card?.info?.id}>{lists?.card?.info?.name}</li>
+                          <button className="ml-5 bg-blue-500 h-6 w-4" onClick={() => addFoodItem(lists?.card?.info)}>+</button>
                       </div>
                     )
                    })}

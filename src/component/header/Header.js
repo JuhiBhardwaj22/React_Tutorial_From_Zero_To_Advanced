@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import Logo from "../../assest/img/foodvilla.jpeg";
 import useOnline from "../../utils/useOnline";
@@ -17,8 +18,11 @@ const Header = () => {
 
 const {user} = useContext(userContext);
 
+const cartItems = useSelector(store => store.cart.items);
+console.log("cartItems",cartItems)
+
   return (
-    <div className="h-24 flex flex-row bg-gray-300 shadow-lg">
+    <div className="h-24 flex flex-row shadow-lg">
       <Title />
       <h1>{isOnline ? "✅" : "🔴"}</h1>
       <p>{user.name}</p>
@@ -30,11 +34,11 @@ const {user} = useContext(userContext);
           <Link className="px-8" to="/about">
             <li className="font-bold text-lg">About</li>
           </Link>
-          <Link className="px-8">
-            <li className="font-bold text-lg">Cart</li>
-          </Link>
           <Link  className="px-8" to="/Offers">
             <li className="font-bold text-lg">Offers</li>
+          </Link>
+          <Link className="px-8" to="/cart">
+            <li className="font-bold text-lg">Cart:{cartItems.length}</li>
           </Link>
           <button className="ml-48 border rounded-full w-24 h-10 bg-blue-600" >Login</button>
         </ul>
