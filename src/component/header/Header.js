@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assest/img/foodvilla.png";
 import useOnline from "../../utils/useOnline";
 import userContext from "../../utils/userContext";
@@ -20,12 +20,13 @@ export const Title = () => {
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
-
+  const navigate = useNavigate();
   const { user } = useContext(userContext);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log("cartItems", cartItems);
-
+  const handleSignIn = () => {
+    navigate("/signin");
+  };
   return (
     <div className="h-24 flex flex-row shadow-lg">
       <Title />
@@ -47,7 +48,10 @@ const Header = () => {
               Cart:{cartItems.length}
             </li>
           </Link>
-          <button className="ml-48 border rounded-full w-24 h-10 bg-blue-600">
+          <button
+            className="ml-48 border rounded-full w-24 h-10 bg-blue-600"
+            onClick={() => handleSignIn()}
+          >
             Login
           </button>
         </ul>
