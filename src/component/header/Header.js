@@ -1,14 +1,19 @@
 import { useState, useContext } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Logo from "../../assest/img/foodvilla.jpeg";
+import Logo from "../../assest/img/foodvilla.png";
 import useOnline from "../../utils/useOnline";
-import userContext  from "../../utils/userContext";
+import userContext from "../../utils/userContext";
 
 export const Title = () => {
   return (
     <a href="/">
-      <img className="h-24 p-2 pl-2 mr-20" alt="logo" src={Logo} />
+      <img
+        data-testid="logo"
+        className="h-24 p-2 pl-2 mr-20"
+        alt="logo"
+        src={Logo}
+      />
     </a>
   );
 };
@@ -16,15 +21,15 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
 
-const {user} = useContext(userContext);
+  const { user } = useContext(userContext);
 
-const cartItems = useSelector(store => store.cart.items);
-console.log("cartItems",cartItems)
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log("cartItems", cartItems);
 
   return (
     <div className="h-24 flex flex-row shadow-lg">
       <Title />
-      <h1>{isOnline ? "✅" : "🔴"}</h1>
+      <h1 data-testid="online-status">{isOnline ? "✅" : "🔴"}</h1>
       <p>{user.name}</p>
       <div>
         <ul className="flex pt-9 ml-80">
@@ -34,13 +39,17 @@ console.log("cartItems",cartItems)
           <Link className="px-8" to="/about">
             <li className="font-bold text-lg">About</li>
           </Link>
-          <Link  className="px-8" to="/Offers">
+          <Link className="px-8" to="/Offers">
             <li className="font-bold text-lg">Offers</li>
           </Link>
           <Link className="px-8" to="/cart">
-            <li className="font-bold text-lg">Cart:{cartItems.length}</li>
+            <li className="font-bold text-lg" data-testid="cart">
+              Cart:{cartItems.length}
+            </li>
           </Link>
-          <button className="ml-48 border rounded-full w-24 h-10 bg-blue-600" >Login</button>
+          <button className="ml-48 border rounded-full w-24 h-10 bg-blue-600">
+            Login
+          </button>
         </ul>
       </div>
       {/* {isLoggedIn ? (
