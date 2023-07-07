@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useSearchParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../Constant";
 import Shimmer from "../utils/Shimmer";
 import useRestaurant from "../utils/useRestaurant";
@@ -8,12 +8,12 @@ import { addItem } from "../utils/cartSlice";
 
 const RestrauntMenu = () => {
   const param = useParams();
+  const location = useLocation();
+  const [searchParam] = useSearchParams();
   const { id } = param;
   //const {id} = useParams();// we can also do this
-
   let restaurant = useRestaurant(id);
 
-  console.log("restaurant", restaurant);
   const menuList = restaurant?.cards
     ?.find((obj) => obj.groupedCard)
     ?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -26,7 +26,6 @@ const RestrauntMenu = () => {
 
   const dispatch = useDispatch();
   const addFoodItem = (items) => {
-    console.log("v", items);
     dispatch(addItem(items));
   };
   return !restaurant ? (
